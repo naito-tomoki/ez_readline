@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/22 21:52:58 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/22 22:15:15 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,13 @@ static bool	ezrl_conn_input(char *line, t_ezrl rl_ptr[static 1])
 	}
 	prev_len = ft_strlen(rl_ptr->input);
 	line_len = ft_strlen(line);
-	tmp = malloc(prev_len + line_len + 1);
+	tmp = malloc(prev_len + line_len + ft_strlen("\n") + 1);
 	if (tmp == NULL)
 		return (false);
 	ft_memmove(tmp, rl_ptr->input, prev_len);
-	ft_memmove(tmp + prev_len, line, line_len);
-	tmp[prev_len + line_len] = '\0';
+	tmp[prev_len] = '\n';
+	ft_memmove(tmp + prev_len + ft_strlen("\n"), line, line_len);
+	tmp[prev_len + line_len + ft_strlen("\n")] = '\0';
 	free(line);
 	rl_ptr->input = tmp;
 	return (true);

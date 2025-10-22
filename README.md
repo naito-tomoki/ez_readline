@@ -8,3 +8,5 @@ example
 `> ls |` `pipe> cat`
 to `> ls |
 cat`
+
+#### continue until `ezrl_add_history` is called

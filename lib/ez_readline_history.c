@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 20:50:39 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/22 23:40:17 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/22 23:50:54 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,16 @@ bool	ezrl_add_history(t_ezrl *rl_ptr)
 
 void	ezrl_destroy_history(t_ezrl *rl_ptr)
 {
+	t_ezrl_stock	*next;
+
 	if (rl_ptr == NULL)
 		return ;
-
-	return (NULL);
+	free(rl_ptr->input);
+	while (rl_ptr->history)
+	{
+		next = (rl_ptr->history)->next;
+		free((rl_ptr->history)->history);
+		free(rl_ptr->history);
+		rl_ptr->history = next;
+	}
 }

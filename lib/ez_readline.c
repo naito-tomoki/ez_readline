@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/22 22:15:15 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/22 22:21:29 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*ez_readline(const char *prompt, t_ezrl *rl_ptr)
 		free(line);
 		return (NULL);
 	}
-	if (rl_ptr->input_type == RL_AGAIN)
+	if (rl_ptr->input_type != RL_NOSTOCK)
 		ezrl_set_history_stock(rl_ptr->history);
 	add_history(rl_ptr->input);
 	rl_ptr->input_type = ezrl_add_input_type(rl_ptr->input_type);

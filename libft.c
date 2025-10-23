@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdlib.h>
 
 size_t
 ft_strlen(const char *s)
@@ -23,4 +24,15 @@ ft_memmove(void *dest, const void *src, size_t n)
 			*udest-- = *usrc--;
 	}
 	return (dest);
+}
+
+char *
+ft_strdup(const char *s)
+{
+	if (!s) return (NULL);
+	const size_t slen = ft_strlen(s);
+	char *res = malloc(slen + 1);
+	if (!res) return (NULL);
+	ft_memmove(res, s, slen); res[slen] = 0;
+	return (res);
 }

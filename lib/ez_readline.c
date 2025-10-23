@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/23 16:41:09 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/23 19:10:02 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,5 @@ void	ezrl_endall(t_ezrl *rl_ptr)
 	free(rl_ptr->input);
 	ezrl_destroy_history(rl_ptr);
 	(*rl_ptr) = ezrl_init();
+	clear_history();
 }

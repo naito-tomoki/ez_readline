@@ -27,6 +27,7 @@ main(void)
 	res = ez_readline("input3: ", &rl);
 	printf("input3 res: %s\n", res);
 
+	free(res);
 	ezrl_destroy_history(&rl);
 	return 0;
 }

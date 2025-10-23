@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/23 02:08:12 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/23 10:24:32 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static bool	ezrl_conn_input(char *line, t_ezrl rl_ptr[static 1])
 	ft_memmove(tmp + prev_len + ft_strlen(" "), line, line_len);
 	tmp[prev_len + line_len + ft_strlen(" ")] = '\0';
 	free(line);
+	free(rl_ptr->input);
 	rl_ptr->input = tmp;
 	return (true);
 }

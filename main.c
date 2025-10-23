@@ -5,34 +5,24 @@ int
 main(void)
 {
 	t_ezrl	rl;
+	char *res;
 
 	rl = ezrl_init();
 
-	char *res = ez_readline("input1: ", &rl);
-	printf("input1 res: %s\n", res);
-	res = ez_readline("input1 again-1: ", &rl);
-	printf("input1 res: %s\n", res);
+	res = ez_readline("connect normal-0: ", &rl);
+	res = ez_readline("connect normal-1: ", &rl);
+	res = ez_readline("connect normal-Z: ", &rl);
 
 	ezrl_add_history(&rl);
 
-	res = ez_readline("input2: ", &rl);
-	printf("input2 res: %s\n", res);
-	res = ez_readline("input2 again-1: ", &rl);
-	printf("input2 res: %s\n", res);
-	res = ez_readline("input2 again-2: ", &rl);
-	printf("input2 res: %s\n", res);
+	ezrl_set_conn_str("\n", &rl);
+
+	res = ez_readline("connect herdoc-0: ", &rl);
+	res = ez_readline("connect herdoc-1: ", &rl);
+	res = ez_readline("connect herdoc-Z: ", &rl);
 
 	ezrl_add_history(&rl);
-
-	res = ez_readline("input3: ", &rl);
-	printf("input3 res: %s\n", res);
-
-	ezrl_endall(&rl);
-
-	res = ez_readline("re-input: ", &rl);
-	printf("re-!: %s\n", res);
-
-	ezrl_add_history(&rl);
+	ez_readline("check your input: ", &rl);
 	ezrl_endall(&rl);
 	return 0;
 }

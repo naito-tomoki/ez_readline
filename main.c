@@ -27,6 +27,12 @@ main(void)
 	res = ez_readline("input3: ", &rl);
 	printf("input3 res: %s\n", res);
 
-	ezrl_destroy_history(&rl);
+	ezrl_endall(&rl);
+
+	res = ez_readline("re-input: ", &rl);
+	printf("re-!: %s\n", res);
+
+	ezrl_add_history(&rl);
+	ezrl_endall(&rl);
 	return 0;
 }

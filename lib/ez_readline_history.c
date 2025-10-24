@@ -6,11 +6,12 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 20:50:39 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/24 17:51:26 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/24 21:17:36 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ez_readline.h"
+#include "rl_wrapper.h"
 #include <stdlib.h>
 
 static t_ezrl_history	*ezrl_history_last(t_ezrl_history *history)

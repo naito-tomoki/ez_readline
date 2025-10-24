@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:14:22 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/24 21:10:50 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/24 21:14:18 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,5 @@ void	ezrl_destroy_history(t_ezrl *rl_ptr);
 
 /* ez_readline_option.c */
 bool	ezrl_set_conn_str(const char *s, t_ezrl *rl_ptr);
-
 
 #endif

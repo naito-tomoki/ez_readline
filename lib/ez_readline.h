@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:14:22 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/23 23:17:44 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/24 17:49:19 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 
 # include <stdbool.h>
 
-typedef struct s_ezrl_stock
+typedef struct s_ezrl_history
 {
-	char				*history;
-	struct s_ezrl_stock	*next;
-}	t_ezrl_stock;
+	char					*recode;
+	struct s_ezrl_history	*next;
+}	t_ezrl_history;
 
 typedef enum e_rl_type
 {
@@ -37,7 +37,7 @@ typedef struct s_ezrl
 	char			*input;
 	const char		*conn_str;
 	size_t			conn_str_len;
-	t_ezrl_stock	*history;
+	t_ezrl_history	*history;
 	t_rl_type		input_type;
 }	t_ezrl;
 
@@ -48,7 +48,7 @@ bool	ezrl_add_history(t_ezrl *rl_ptr);
 void	ezrl_endall(t_ezrl *rl_ptr);
 
 /* ez_readline_history.c */
-void	ezrl_set_history_stock(t_ezrl_stock *history);
+void	ezrl_set_history_stock(t_ezrl_history *history);
 void	ezrl_destroy_history(t_ezrl *rl_ptr);
 
 /* ez_readline_option.c */

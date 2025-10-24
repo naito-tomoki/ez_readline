@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ezrl_utils.c                                       :+:      :+:    :+:   */
+/*   rl_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnaito <tnaito@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 23:15:29 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/23 23:19:27 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/24 21:12:02 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ez_readline.h"
+#include "rl_wrapper.h"
 #include "utils.h"
 
-bool	ezrl_isspace_all(const char *line)
+bool	rl_isspace_all(const char *line)
 {
 	if (line == NULL)
 		return (false);

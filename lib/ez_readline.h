@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:14:22 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/24 17:49:19 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/24 18:30:20 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <readline/history.h>
 
 # include <stdbool.h>
+
+typedef struct s_ezrl_conn
+{
+	const char	*conn_str;
+	size_t		conn_str_len;
+}	t_ezrl_conn;
 
 typedef struct s_ezrl_history
 {
@@ -35,8 +41,7 @@ typedef enum e_rl_type
 typedef struct s_ezrl
 {
 	char			*input;
-	const char		*conn_str;
-	size_t			conn_str_len;
+	t_ezrl_conn		conn_info;
 	t_ezrl_history	*history;
 	t_rl_type		input_type;
 }	t_ezrl;

@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/23 22:47:37 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/24 18:31:17 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_ezrl	ezrl_init(void)
 	t_ezrl	rl;
 
 	rl.input = NULL;
-	rl.conn_str = " ";
-	rl.conn_str_len = 1;
+	rl.conn_info.conn_str = " ";
+	rl.conn_info.conn_str_len = 1;
 	rl.history = NULL;
 	rl.input_type = RL_NOSTOCK;
 	return (rl);
@@ -46,13 +46,14 @@ static bool	ezrl_conn_input(char *line, t_ezrl rl_ptr[static 1])
 	}
 	prev_len = ft_strlen(rl_ptr->input);
 	line_len = ft_strlen(line);
-	tmp = malloc(prev_len + line_len + rl_ptr->conn_str_len + 1);
+	tmp = malloc(prev_len + line_len + rl_ptr->conn_info.conn_str_len + 1);
 	if (tmp == NULL)
 		return (false);
 	ft_memmove(tmp, rl_ptr->input, prev_len);
-	ft_memmove(tmp + prev_len, rl_ptr->conn_str, rl_ptr->conn_str_len);
-	ft_memmove(tmp + prev_len + rl_ptr->conn_str_len, line, line_len);
-	tmp[prev_len + line_len + rl_ptr->conn_str_len] = '\0';
+	ft_memmove(tmp + prev_len, rl_ptr->conn_info.conn_str,
+		rl_ptr->conn_info.conn_str_len);
+	ft_memmove(tmp + prev_len + rl_ptr->conn_info.conn_str_len, line, line_len);
+	tmp[prev_len + line_len + rl_ptr->conn_info.conn_str_len] = '\0';
 	free(line);
 	free(rl_ptr->input);
 	rl_ptr->input = tmp;

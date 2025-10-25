@@ -6,11 +6,12 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/24 21:40:16 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/25 18:37:57 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ez_readline.h"
+#include "rl_wrapper.h"
 #include "libft.h"
 #include <stdlib.h>
 
@@ -69,6 +70,11 @@ char	*ez_readline(const char *prompt, t_ezrl *rl_ptr)
 	line = readline(prompt);
 	if (line == NULL)
 		return (NULL);
+	if (rlwp_is_safe_add_history(line) == false)
+	{
+		free(line);
+		return (rl_ptr->input);
+	}
 	if (ezrl_conn_input(line, rl_ptr) == false)
 	{
 		free(line);

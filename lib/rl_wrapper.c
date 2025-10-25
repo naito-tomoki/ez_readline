@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 19:04:04 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/24 21:42:50 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/10/25 18:15:09 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool	rlwp_is_safe_add_history(const char *line)
 {
 	if (line == NULL)
 		return (false);
-	if ((ft_strlen(line) == 1) && (line[0] == '\n'))
+	if (ft_strlen(line) == 0)
 		return (false);
 	return (true);
 }

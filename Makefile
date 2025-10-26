@@ -1,7 +1,8 @@
 NAME = a.out
 
 CC = cc
-CFLAGS = -I ./lib/ -I . -lreadline
+CFLAGS = -Wall -Wextra -Werror -I ./lib/ -I .
+RLFLAG = -lreadline
 
 DIR_OBJ = build
 DIR_LIB = lib
@@ -10,7 +11,7 @@ SRCS = $(wildcard *.c) $(wildcard $(DIR_LIB)/*.c)
 OBJS = $(SRCS:%.c=$(DIR_OBJ)/%.o)
 
 $(NAME): $(OBJS)
-	$(CC) $^ -o $@ $(CFLAGS)
+	$(CC) $^ -o $@ $(CFLAGS) $(RLFLAG)
 
 $(DIR_OBJ)/%.o: %.c
 	mkdir -p $(dir $@)

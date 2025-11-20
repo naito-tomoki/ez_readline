@@ -1,10 +1,12 @@
-NAME = a.out
+override NAME = a.out
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I ./lib/ -I .
 RLFLAG = -lreadline
 
-DIR_OBJ = build
+DEBUG ?= NOTHING
+
+override DIR_OBJ = build
 DIR_LIB = lib
 
 SRCS = $(wildcard *.c) $(wildcard $(DIR_LIB)/*.c)
@@ -15,7 +17,7 @@ $(NAME): $(OBJS)
 
 $(DIR_OBJ)/%.o: %.c
 	mkdir -p $(dir $@)
-	$(CC) -c $< -o $@ $(CFLAGS)
+	$(CC) -c $< -o $@ $(CFLAGS) -D $(DEBUG)
 
 clean:
 	rm -rf $(DIR_OBJ)

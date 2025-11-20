@@ -1,11 +1,14 @@
 #include "ez_readline.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int
 main(void)
 {
 	t_ezrl	rl;
 	char *res;
+
+	(void)res;
 
 	rl = ezrl_init();
 
@@ -23,6 +26,9 @@ main(void)
 
 	ezrl_add_history(&rl);
 	ez_readline("check your input: ", &rl);
+
+	printf("history count: %d", ezrl_get_history_count(&rl));
+
 	ezrl_endall(&rl);
 	return 0;
 }

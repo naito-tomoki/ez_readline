@@ -21,3 +21,11 @@ bool	ezrl_set_conn_str(const char *s, t_ezrl *rl_ptr)
 	rl_ptr->conn_info.conn_str_len = ft_strlen(s);
 	return (true);
 }
+
+bool	ezrl_set_histsize(int histsize, t_ezrl *rl_ptr)
+{
+	if (rl_ptr == NULL)
+		return (false);
+	rl_ptr->history_size = histsize;
+	return (true);
+}

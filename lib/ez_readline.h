@@ -19,6 +19,8 @@
 
 # include <stdbool.h>
 
+# define HISTSIZE_DEFAULT 1000
+
 typedef struct s_ezrl_conn
 {
 	const char	*conn_str;
@@ -41,6 +43,7 @@ typedef enum e_rl_type
 typedef struct s_ezrl
 {
 	char			*input;
+	int				history_size;
 	t_ezrl_conn		conn_info;
 	t_ezrl_history	*history;
 	t_rl_type		input_type;
@@ -58,5 +61,6 @@ void	ezrl_destroy_history(t_ezrl *rl_ptr);
 
 /* ez_readline_option.c */
 bool	ezrl_set_conn_str(const char *s, t_ezrl *rl_ptr);
+bool	ezrl_set_histsize(int histsize, t_ezrl *rl_ptr);
 
 #endif

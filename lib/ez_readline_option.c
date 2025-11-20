@@ -29,3 +29,20 @@ bool	ezrl_set_histsize(int histsize, t_ezrl *rl_ptr)
 	rl_ptr->history_size = histsize;
 	return (true);
 }
+
+int	ezrl_get_history_count(t_ezrl *rl_ptr)
+{
+	int				count;
+	t_ezrl_history	*hist;
+
+	if (rl_ptr == NULL)
+		return (-1);
+	count = 0;
+	hist = rl_ptr->history;
+	while (hist)
+	{
+		count++;
+		hist = hist->next;
+	}
+	return (count);
+}

@@ -20,9 +20,8 @@ t_ezrl	ezrl_init(void)
 	t_ezrl	rl;
 
 	rl.input = NULL;
-	rl.history_size = HISTSIZE_DEFAULT;
-	rl.conn_info.conn_str = " ";
-	rl.conn_info.conn_str_len = 1;
+	ezrl_set_histsize(HISTSIZE_DEFAULT, &rl);
+	ezrl_set_conn_str(" ", &rl);
 	rl.history = NULL;
 	rl.input_type = RL_NOSTOCK;
 	return (rl);

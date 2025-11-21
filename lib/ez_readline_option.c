@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 22:22:10 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/24 18:26:42 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/11/21 18:14:16 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ bool	ezrl_set_histsize(int histsize, t_ezrl *rl_ptr)
 	if (rl_ptr == NULL)
 		return (false);
 	rl_ptr->history_size = histsize;
+	ezrl_rm_over_histsize(rl_ptr);
 	return (true);
 }
 

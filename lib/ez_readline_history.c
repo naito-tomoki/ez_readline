@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 20:50:39 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/24 21:17:36 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/11/21 18:16:07 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,34 @@ static t_ezrl_history	*ezrl_history_last(t_ezrl_history *history)
 	return (history);
 }
 
-// static void	ezrl_rm_over_histsize(t_ezrl *rl_ptr)
-// {
-// 	const int	over = (
-// 			ezrl_get_history_count(rl_ptr) - rl_ptr->history_size
-// 			);
-
-// 	while (over < 1)
-// 	{
-
-// 		over--;
-// 	}
-// }
-
-void	ezrl_set_history_stock(t_ezrl_history *history)
+void	ezrl_rm_over_histsize(t_ezrl *rl_ptr)
 {
+	const int		histsize = rl_ptr->history_size;
+	int				over;
+	int				i;
+	t_ezrl_history	*next;
+
+	if (histsize < 0)
+		return ;
+	over = ezrl_get_history_count(rl_ptr) - histsize;
+	i = 0;
+	while (i < over)
+	{
+		next = (rl_ptr->history)->next;
+		free((rl_ptr->history)->recode);
+		free(rl_ptr->history);
+		rl_ptr->history = next;
+		i++;
+	}
+	if (i)
+		ezrl_set_history_stock(rl_ptr);
+}
+
+void	ezrl_set_history_stock(t_ezrl *rl_ptr)
+{
+	t_ezrl_history	*history;
+
+	history = rl_ptr->history;
 	clear_history();
 	while (history)
 	{
@@ -64,7 +77,7 @@ bool	ezrl_add_history(t_ezrl *rl_ptr)
 	if (rl_ptr->input_type == RL_INPUT)
 		add_history(stock->recode);
 	else
-		ezrl_set_history_stock(rl_ptr->history);
+		ezrl_set_history_stock(rl_ptr);
 	ezrl_rm_over_histsize(rl_ptr);
 	rl_ptr->input = NULL;
 	rl_ptr->input_type = RL_NOSTOCK;

@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:14:22 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/24 21:14:18 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/11/21 18:13:56 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,13 @@ typedef struct s_ezrl
 /* ez_readline.c */
 t_ezrl	ezrl_init(void);
 char	*ez_readline(const char *prompt, t_ezrl *rl_ptr);
-bool	ezrl_add_history(t_ezrl *rl_ptr);
 void	ezrl_endall(t_ezrl *rl_ptr);
 
 /* ez_readline_history.c */
-void	ezrl_set_history_stock(t_ezrl_history *history);
+bool	ezrl_add_history(t_ezrl *rl_ptr);
+void	ezrl_set_history_stock(t_ezrl *history);
 void	ezrl_destroy_history(t_ezrl *rl_ptr);
+void	ezrl_rm_over_histsize(t_ezrl *rl_ptr);
 
 /* ez_readline_option.c */
 bool	ezrl_set_conn_str(const char *s, t_ezrl *rl_ptr);

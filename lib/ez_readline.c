@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/11/21 18:06:10 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/11/21 18:34:19 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ t_ezrl	ezrl_init(void)
 	t_ezrl	rl;
 
 	rl.input = NULL;
-	ezrl_set_histsize(HISTSIZE_DEFAULT, &rl);
-	ezrl_set_conn_str(" ", &rl);
 	rl.history = NULL;
 	rl.input_type = RL_NOSTOCK;
+	ezrl_set_histsize(HISTSIZE_DEFAULT, &rl);
+	ezrl_set_conn_str(" ", &rl);
 	return (rl);
 }
 

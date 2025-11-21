@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 20:50:39 by tnaito            #+#    #+#             */
-/*   Updated: 2025/11/21 18:16:07 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/11/21 18:34:34 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,20 @@ static t_ezrl_history	*ezrl_history_last(t_ezrl_history *history)
 
 void	ezrl_rm_over_histsize(t_ezrl *rl_ptr)
 {
-	const int		histsize = rl_ptr->history_size;
-	int				over;
-	int				i;
-	t_ezrl_history	*next;
+	int	histsize;
+	int	over;
+	int	i;
 
+	if (rl_ptr == NULL)
+		return ;
+	histsize = rl_ptr->history_size;
 	if (histsize < 0)
 		return ;
 	over = ezrl_get_history_count(rl_ptr) - histsize;
 	i = 0;
 	while (i < over)
 	{
-		next = (rl_ptr->history)->next;
-		free((rl_ptr->history)->recode);
-		free(rl_ptr->history);
-		rl_ptr->history = next;
+		ezrl_rm_oldest_history(rl_ptr);
 		i++;
 	}
 	if (i)
@@ -86,15 +85,8 @@ bool	ezrl_add_history(t_ezrl *rl_ptr)
 
 void	ezrl_destroy_history(t_ezrl *rl_ptr)
 {
-	t_ezrl_history	*next;
-
 	if (rl_ptr == NULL)
 		return ;
 	while (rl_ptr->history)
-	{
-		next = (rl_ptr->history)->next;
-		free((rl_ptr->history)->recode);
-		free(rl_ptr->history);
-		rl_ptr->history = next;
-	}
+		ezrl_rm_oldest_history(rl_ptr);
 }

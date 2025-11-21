@@ -6,12 +6,13 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 22:22:10 by tnaito            #+#    #+#             */
-/*   Updated: 2025/11/21 18:14:16 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/11/21 18:33:59 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ez_readline.h"
 #include "libft.h"
+#include <stdlib.h>
 
 bool	ezrl_set_conn_str(const char *s, t_ezrl *rl_ptr)
 {
@@ -46,4 +47,21 @@ int	ezrl_get_history_count(t_ezrl *rl_ptr)
 		hist = hist->next;
 	}
 	return (count);
+}
+
+bool	ezrl_rm_oldest_history(t_ezrl *rl_ptr)
+{
+	t_ezrl_history	*oldest;
+	t_ezrl_history	*next;
+
+	if (rl_ptr == NULL)
+		return (false);
+	oldest = rl_ptr->history;
+	if (oldest == NULL)
+		return (false);
+	next = oldest->next;
+	free(oldest->recode);
+	free(oldest);
+	rl_ptr->history = next;
+	return (true);
 }

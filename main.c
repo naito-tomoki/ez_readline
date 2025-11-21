@@ -12,6 +12,8 @@ main(void)
 
 	rl = ezrl_init();
 
+	ezrl_set_histsize(1, &rl);
+
 	res = ez_readline("connect normal-0: ", &rl);
 	res = ez_readline("connect normal-1: ", &rl);
 	res = ez_readline("connect normal-Z: ", &rl);
@@ -25,6 +27,7 @@ main(void)
 	res = ez_readline("connect herdoc-Z: ", &rl);
 
 	ezrl_add_history(&rl);
+
 	ez_readline("check your input: ", &rl);
 
 	printf("history count: %d", ezrl_get_history_count(&rl));

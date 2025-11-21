@@ -21,6 +21,19 @@ static t_ezrl_history	*ezrl_history_last(t_ezrl_history *history)
 	return (history);
 }
 
+// static void	ezrl_rm_over_histsize(t_ezrl *rl_ptr)
+// {
+// 	const int	over = (
+// 			ezrl_get_history_count(rl_ptr) - rl_ptr->history_size
+// 			);
+
+// 	while (over < 1)
+// 	{
+
+// 		over--;
+// 	}
+// }
+
 void	ezrl_set_history_stock(t_ezrl_history *history)
 {
 	clear_history();
@@ -52,6 +65,7 @@ bool	ezrl_add_history(t_ezrl *rl_ptr)
 		add_history(stock->recode);
 	else
 		ezrl_set_history_stock(rl_ptr->history);
+	ezrl_rm_over_histsize(rl_ptr);
 	rl_ptr->input = NULL;
 	rl_ptr->input_type = RL_NOSTOCK;
 	return (true);

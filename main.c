@@ -14,17 +14,20 @@ main(void)
 
 	ezrl_set_histsize(1, &rl);
 
-	res = ez_readline("connect normal-0: ", &rl);
-	res = ez_readline("connect normal-1: ", &rl);
-	res = ez_readline("connect normal-Z: ", &rl);
+	//res = ez_readline("connect normal-0: ", &rl);
+	//res = ez_readline("connect normal-1: ", &rl);
+	//res = ez_readline("connect normal-Z: ", &rl);
 
-	ezrl_add_history(&rl);
+	//ezrl_add_history(&rl);
 
 	ezrl_set_conn_str("\n", &rl);
 
 	res = ez_readline("connect herdoc-0: ", &rl);
+	printf("res: %s\n", res);
 	res = ez_readline("connect herdoc-1: ", &rl);
+	printf("res: %s\n", res);
 	res = ez_readline("connect herdoc-Z: ", &rl);
+	printf("res: %s\n", res);
 
 	ezrl_add_history(&rl);
 

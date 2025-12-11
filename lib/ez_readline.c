@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/11/21 18:34:19 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/11 20:28:30 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,14 @@ static bool	ezrl_conn_input(char *line, t_ezrl rl_ptr[static 1])
 char	*ez_readline(const char *prompt, t_ezrl *rl_ptr)
 {
 	char	*line;
+	size_t	len;
 
 	if (rl_ptr == NULL)
 		return (NULL);
 	line = readline(prompt);
 	if (line == NULL)
 		return (NULL);
+	len = ft_strlen(line);
 	if (rlwp_is_safe_add_history(line) == false)
 	{
 		free(line);
@@ -84,7 +86,7 @@ char	*ez_readline(const char *prompt, t_ezrl *rl_ptr)
 		ezrl_set_history_stock(rl_ptr);
 	add_history(rl_ptr->input);
 	rl_ptr->input_type = ezrl_add_input_type(rl_ptr->input_type);
-	return (rl_ptr->input);
+	return (rl_ptr->input + ft_strlen(rl_ptr->input) - len);
 }
 
 void	ezrl_endall(t_ezrl *rl_ptr)

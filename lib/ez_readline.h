@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:14:22 by tnaito            #+#    #+#             */
-/*   Updated: 2025/11/21 18:24:47 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/12 15:38:22 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,20 @@ typedef struct s_ezrl
 }	t_ezrl;
 
 /* ez_readline.c */
-t_ezrl	ezrl_init(void);
-char	*ez_readline(const char *prompt, t_ezrl *rl_ptr);
-void	ezrl_endall(t_ezrl *rl_ptr);
+t_ezrl		ezrl_init(void);
+const char	*ez_readline(const char *prompt, t_ezrl *rl_ptr);
+void		ezrl_endall(t_ezrl *rl_ptr);
 
 /* ez_readline_history.c */
-bool	ezrl_add_history(t_ezrl *rl_ptr);
-void	ezrl_set_history_stock(t_ezrl *history);
-void	ezrl_destroy_history(t_ezrl *rl_ptr);
-void	ezrl_rm_over_histsize(t_ezrl *rl_ptr);
+bool		ezrl_add_history(t_ezrl *rl_ptr);
+void		ezrl_set_history_stock(t_ezrl *history);
+void		ezrl_destroy_history(t_ezrl *rl_ptr);
+void		ezrl_rm_over_histsize(t_ezrl *rl_ptr);
 
 /* ez_readline_option.c */
-bool	ezrl_set_conn_str(const char *s, t_ezrl *rl_ptr);
-bool	ezrl_set_histsize(int histsize, t_ezrl *rl_ptr);
-int		ezrl_get_history_count(t_ezrl *rl_ptr);
-bool	ezrl_rm_oldest_history(t_ezrl *rl_ptr);
+bool		ezrl_set_conn_str(const char *s, t_ezrl *rl_ptr);
+bool		ezrl_set_histsize(int histsize, t_ezrl *rl_ptr);
+int			ezrl_get_history_count(t_ezrl *rl_ptr);
+bool		ezrl_rm_oldest_history(t_ezrl *rl_ptr);
 
 #endif

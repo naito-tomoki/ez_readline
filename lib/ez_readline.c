@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/11 20:28:30 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/12 15:38:33 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static bool	ezrl_conn_input(char *line, t_ezrl rl_ptr[static 1])
 	return (true);
 }
 
-char	*ez_readline(const char *prompt, t_ezrl *rl_ptr)
+const char	*ez_readline(const char *prompt, t_ezrl *rl_ptr)
 {
 	char	*line;
 	size_t	len;

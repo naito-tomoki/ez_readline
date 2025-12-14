@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:02:11 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/14 19:32:25 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/14 19:48:05 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ezrl_get_total_inputlines(t_ezrl *rl_ptr)
 
 int	ezrl_get_inputlines(t_ezrl *rl_ptr)
 {
-	size_t		res;
+	int			res;
 	const char	linec = '\n';
 	char		*s;
 

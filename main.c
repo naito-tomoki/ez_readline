@@ -23,15 +23,15 @@ main(void)
 	ezrl_set_conn_str("\n", &rl);
 
 	res = ez_readline("connect herdoc-0: ", &rl);
-	printf("res: %s\n", res);
+	//printf("res: %s\n", res);
 	res = ez_readline("connect herdoc-1: ", &rl);
-	printf("res: %s\n", res);
+	//printf("res: %s\n", res);
 	res = ez_readline("connect herdoc-Z: ", &rl);
-	printf("res: %s\n", res);
+	//printf("res: %s\n", res);
 
 	ezrl_add_history(&rl);
 
-	ez_readline("check your input: ", &rl);
+	//ez_readline("check your input: ", &rl);
 
 	printf("history count: %d\n", ezrl_get_history_count(&rl));
 	printf("total lines: %d\n", ezrl_get_total_inputlines(&rl));

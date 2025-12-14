@@ -36,3 +36,12 @@ ft_strdup(const char *s)
 	ft_memmove(res, s, slen); res[slen] = 0;
 	return (res);
 }
+
+char *
+ft_strchr(const char *s, int c)
+{
+	if (!s) return (NULL);
+	while (*s) {if (*s == c) return ((char *)s); s++;}
+	if (*s == c) return ((char *)s);
+	return (NULL);
+}

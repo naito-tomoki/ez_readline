@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 20:50:39 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/14 19:18:18 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/14 23:32:35 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,7 @@ bool	ezrl_add_history(t_ezrl *rl_ptr)
 		rl_ptr->history = stock;
 	else
 		ezrl_history_last(rl_ptr->history)->next = stock;
-	if (rl_ptr->input_type == RL_INPUT)
-		add_history(stock->recode);
-	else
+	if (rl_ptr->input_type == RL_AGAIN)
 		ezrl_set_history_stock(rl_ptr);
 	ezrl_rm_over_histsize(rl_ptr);
 	rl_ptr->input = NULL;

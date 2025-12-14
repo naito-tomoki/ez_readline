@@ -6,7 +6,7 @@ int
 main(void)
 {
 	t_ezrl	rl;
-	char *res;
+	const char *res;
 
 	(void)res;
 
@@ -33,7 +33,8 @@ main(void)
 
 	ez_readline("check your input: ", &rl);
 
-	printf("history count: %d", ezrl_get_history_count(&rl));
+	printf("history count: %d\n", ezrl_get_history_count(&rl));
+	printf("total lines: %d\n", ezrl_get_total_inputlines(&rl));
 
 	ezrl_endall(&rl);
 	return 0;

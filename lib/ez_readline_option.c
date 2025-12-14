@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 22:22:10 by tnaito            #+#    #+#             */
-/*   Updated: 2025/11/21 18:33:59 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/14 19:03:17 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,6 @@ bool	ezrl_set_histsize(int histsize, t_ezrl *rl_ptr)
 	rl_ptr->history_size = histsize;
 	ezrl_rm_over_histsize(rl_ptr);
 	return (true);
-}
-
-int	ezrl_get_history_count(t_ezrl *rl_ptr)
-{
-	int				count;
-	t_ezrl_history	*hist;
-
-	if (rl_ptr == NULL)
-		return (-1);
-	count = 0;
-	hist = rl_ptr->history;
-	while (hist)
-	{
-		count++;
-		hist = hist->next;
-	}
-	return (count);
 }
 
 bool	ezrl_rm_oldest_history(t_ezrl *rl_ptr)

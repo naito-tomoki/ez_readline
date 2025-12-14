@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/12 15:38:33 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/14 19:11:16 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_ezrl	ezrl_init(void)
 {
 	t_ezrl	rl;
 
+	rl.total_lines = 0;
 	rl.input = NULL;
 	rl.history = NULL;
 	rl.input_type = RL_NOSTOCK;

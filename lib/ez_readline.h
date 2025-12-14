@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:14:22 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/12 15:38:22 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/14 19:32:37 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_ezrl
 {
 	char			*input;
 	int				history_size;
+	int				total_lines;
 	t_ezrl_conn		conn_info;
 	t_ezrl_history	*history;
 	t_rl_type		input_type;
@@ -63,7 +64,11 @@ void		ezrl_rm_over_histsize(t_ezrl *rl_ptr);
 /* ez_readline_option.c */
 bool		ezrl_set_conn_str(const char *s, t_ezrl *rl_ptr);
 bool		ezrl_set_histsize(int histsize, t_ezrl *rl_ptr);
-int			ezrl_get_history_count(t_ezrl *rl_ptr);
 bool		ezrl_rm_oldest_history(t_ezrl *rl_ptr);
+
+/* ez_readline_getinfo.c */
+int			ezrl_get_history_count(t_ezrl *rl_ptr);
+int			ezrl_get_total_inputlines(t_ezrl *rl_ptr);
+int			ezrl_get_inputlines(t_ezrl *rl_ptr);
 
 #endif

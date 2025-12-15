@@ -36,6 +36,7 @@ main(void)
 	ez_readline("2:", &rl);
 	ez_readline("2-1:", &rl);
 	ez_readline("2-2:", &rl);
+	printf("2-2 add:%s\n", ezrl_get_inputing_line(&rl));
 	ez_readline("2-3:", &rl);
 	ez_readline("2-4:", &rl);
 	ez_readline("2-5:", &rl);

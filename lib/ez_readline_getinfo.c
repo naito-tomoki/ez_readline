@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:02:11 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/14 19:48:05 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/16 01:39:08 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,11 @@ int	ezrl_get_inputlines(t_ezrl *rl_ptr)
 		s = ft_strchr(++s, linec);
 	}
 	return (res);
+}
+
+const char	*ezrl_get_inputing_line(t_ezrl *rl_ptr)
+{
+	if (rl_ptr == NULL)
+		return (NULL);
+	return (rl_ptr->input);
 }

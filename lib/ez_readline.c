@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/16 01:02:39 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/16 02:55:21 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_ezrl	ezrl_init(void)
 {
 	t_ezrl	rl;
 
+	rl_attempted_completion_function = rlwp_completion_setting;
 	rl.total_lines = 0;
 	rl.input = NULL;
 	rl.history = NULL;

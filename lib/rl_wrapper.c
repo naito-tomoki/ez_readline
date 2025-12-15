@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 19:04:04 by tnaito            #+#    #+#             */
-/*   Updated: 2025/10/25 18:15:09 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/16 02:55:56 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,13 @@ bool	rlwp_add_history(const char *line)
 		return (false);
 	add_history(line);
 	return (true);
+}
+
+char	**rlwp_completion_setting(
+	const char *text, int start, int end)
+{
+	rl_attempted_completion_over = (
+			(start == 0) && (ft_strlen(text) == 0));
+	return (NULL);
+	(void)end;
 }

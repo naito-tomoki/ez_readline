@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/14 23:27:56 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/16 00:39:27 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ const char	*ez_readline(const char *prompt, t_ezrl *rl_ptr)
 	if (rlwp_is_safe_add_history(line) == false)
 	{
 		free(line);
-		return (rl_ptr->input);
+		return ("");
 	}
 	if (ezrl_conn_input(line, rl_ptr) == false)
 	{

@@ -36,9 +36,15 @@ main(void)
 	ez_readline("2:", &rl);
 	ez_readline("2-1:", &rl);
 	ez_readline("2-2:", &rl);
+	ez_readline("2-3:", &rl);
+	ez_readline("2-4:", &rl);
+	ez_readline("2-5:", &rl);
 	ezrl_add_history(&rl);
 	ez_readline("3:", &rl);
 	ez_readline("3-1:", &rl);
+	ez_readline("3-2:", &rl);
+	ez_readline("3-3:", &rl);
+	ez_readline("3-4:", &rl);
 	ezrl_add_history(&rl);
 	ez_readline("4:", &rl);
 	ezrl_add_history(&rl);

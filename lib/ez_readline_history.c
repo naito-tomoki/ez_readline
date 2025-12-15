@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 20:50:39 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/14 23:32:35 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/16 01:02:58 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ezrl_set_history_stock(t_ezrl *rl_ptr)
 	t_ezrl_history	*history;
 
 	history = rl_ptr->history;
-	clear_history();
+	rl_clear_history();
 	while (history)
 	{
 		add_history(history->recode);

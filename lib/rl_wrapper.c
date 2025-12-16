@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 19:04:04 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/16 02:55:56 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/17 03:16:46 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,23 @@ char	**rlwp_completion_setting(
 			(start == 0) && (ft_strlen(text) == 0));
 	return (NULL);
 	(void)end;
+}
+
+int	rlwp_countlines(const char *str)
+{
+	int			res;
+	const char	linec = '\n';
+
+	if (str == NULL)
+		return (-1);
+	if (!rlwp_add_history(str))
+		return (0);
+	res = 1;
+	str = ft_strchr(str, linec);
+	while (str)
+	{
+		res++;
+		str = ft_strchr(++str, linec);
+	}
+	return (res);
 }

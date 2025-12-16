@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:14:22 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/16 01:39:31 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/17 03:07:48 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ bool		ezrl_rm_oldest_history(t_ezrl *rl_ptr);
 /* ez_readline_getinfo.c */
 int			ezrl_get_history_count(t_ezrl *rl_ptr);
 int			ezrl_get_total_inputlines(t_ezrl *rl_ptr);
-int			ezrl_get_inputlines(t_ezrl *rl_ptr);
 const char	*ezrl_get_inputing_line(t_ezrl *rl_ptr);
 
 #endif

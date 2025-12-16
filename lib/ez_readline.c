@@ -6,7 +6,7 @@
 /*   By: tnaito <tnaito@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:13:50 by tnaito            #+#    #+#             */
-/*   Updated: 2025/12/16 02:55:21 by tnaito           ###   ########.fr       */
+/*   Updated: 2025/12/17 03:12:33 by tnaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static bool	ezrl_conn_input(char *line, t_ezrl rl_ptr[static 1])
 	if (rl_ptr->input_type == RL_NOSTOCK)
 	{
 		rl_ptr->input = line;
+		rl_ptr->total_lines += rlwp_countlines(line);
 		return (true);
 	}
 	prev_len = ft_strlen(rl_ptr->input);
@@ -57,6 +58,7 @@ static bool	ezrl_conn_input(char *line, t_ezrl rl_ptr[static 1])
 		rl_ptr->conn_info.conn_str_len);
 	ft_memmove(tmp + prev_len + rl_ptr->conn_info.conn_str_len, line, line_len);
 	tmp[prev_len + line_len + rl_ptr->conn_info.conn_str_len] = '\0';
+	rl_ptr->total_lines += rlwp_countlines(line);
 	free(line);
 	free(rl_ptr->input);
 	rl_ptr->input = tmp;
